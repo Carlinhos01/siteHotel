@@ -27,4 +27,7 @@ class QuartoController extends Controller
         quarto::create($dadosValidos);
         return view ("home");
     }
+    public function gerenciarQuarto(){
+        return view('gerenciarQuarto');
+    }
 }

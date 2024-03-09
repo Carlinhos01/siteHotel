@@ -28,3 +28,8 @@ Route::post('/cadastroCliente', [ClienteController::class, 'cadCliente'])->name(
 Route::post('/cadastroFuncionarios', [FuncionarioController::class, 'cadFunci'])->name('envia-banco-funci');
 Route::post('/cadastroQuarto', [QuartoController::class, 'cadQuarto'])->name('envia-banco-quarto');
 Route::post('/cadastroReserva', [ReservaController::class, 'cadReserva'])->name('envia-banco-reserva');
+
+Route::get('/gerenciarCliente', [ClienteController::class, 'gerenciarCliente'])->name('gerenciar-cliente');
+Route::get('/cadastroFuncionarios', [ClienteController::class, 'gerenciarCliente'])->name('gerenciar-funcionario');
+Route::get('/cadastroQuarto', [ClienteController::class, 'gerenciarCliente'])->name('gerenciar-quarto');
+Route::get('/cadastroReserva', [ClienteController::class, 'gerenciarCliente'])->name('gerenciar-reserva');
