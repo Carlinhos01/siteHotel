@@ -10,7 +10,7 @@
   </div>
   <div class="col-md-12">
     <label for="inputEmail" class="form-label">E-mail</label>
-    <input type="email" class="form-control" id="inputEmail" name="email" required placeholder="seuemail@algumemail.com">
+    <input type="email" class="form-control" id="inputEmail" name="email" required placeholder="E-mail">
   </div>
   <div class="col-2">
     <label for="inputFone" class="form-label">Telefone</label>

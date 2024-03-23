@@ -29,7 +29,7 @@
       </tr>
     </thead>
     <tbody>
-     @foreach($registrosClientes as $registrosClientesLoop )
+     @foreach($registrosClientes as $registrosClientesLoop)
       <tr>
         <th scope="row">{{$registrosClientesLoop->id}}</th>
         <td>{{$registrosClientesLoop->nome}}</td>
@@ -41,11 +41,12 @@
             <button type="button" class="btn btn-primary">X</button>
           </a>
         </td>
-        xx
+        
         <td>
-         <form method="post" action="{{'apaga-cliente,$registrosClientesLoop->id'}}">
+         <form method="post" action="{{route('apaga-cliente',$registrosClientesLoop->id)}}">
           @method('delete')
           @csrf
+          <button type="submit" class="btn btn-primary">X</button>
          </form>
         </td>
       </tr>

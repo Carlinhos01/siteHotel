@@ -8,7 +8,7 @@ use App\Models\Funcionario;
 
 class FuncionarioController extends Controller
 {
-    public function showHome () {
+    public function showHome() {
         return view ("home");
     }
 
@@ -16,7 +16,7 @@ class FuncionarioController extends Controller
         return view ("cadastroFuncionarios");
     }
 
-    public function cadFunci (Request $request){
+    public function cadFunci(Request $request){
         $dadosValidos = $request-> validate([
             'nome' => 'string|required', 
             'funcao' => 'string|required'
@@ -25,7 +25,24 @@ class FuncionarioController extends Controller
         funcionario::create($dadosValidos);
         return view ("home");
     }
-    public function gerenciarfuncionario(){
-        return view('gerenciarfuncionario');
+    public function mostrargerenciarFuncionarioID(Cliente $id){
+
+        return view('xxxxxxxxxxx',['registrosFunsionario'=>$id]);
+    }
+
+    public function gerenciarfuncionario(Request $request){
+
+        $dadosFuncionario = Funcionario::query();
+        $dadosFuncionario->when($request->nome,function($query,$valor){
+            $query->where('nome','like','%'.$valor.'%');
+        });
+        $dadosFuncionario = $dadosFuncionario->get();
+
+        return view('gerenciarFuncionario',['registrosFuncionario'=>$dadosFuncionario]);
+    }
+
+    public function destroy(Funcionario $id){
+        $id->delete();
+        return Redirect::route('home');
     }
 }

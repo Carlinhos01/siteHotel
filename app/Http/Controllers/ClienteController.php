@@ -48,7 +48,7 @@ class ClienteController extends Controller
         return Redirect::route('home');
     }
 
-    public function alterarClienteBanco(CLiente $id,Request $request){
+    public function alterarClienteBanco(Cliente $id,Request $request){
 
         $dadosValidos = $request-> validate([
             'nome' => 'string|required', 
