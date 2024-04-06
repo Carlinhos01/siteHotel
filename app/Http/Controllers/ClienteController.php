@@ -8,7 +8,7 @@ use App\Models\Cliente;
 
 class ClienteController extends Controller
 {
-    public function showHome () {
+    public function showHome(){
         return view ("home");
     }
 
@@ -29,7 +29,7 @@ class ClienteController extends Controller
 
     public function mostrargerenciarClienteID(Cliente $id){
 
-        return view('xxxxxxxxxxx',['registrosClientes'=>$id]);
+        return view('formularioAlterarCliente',['registrosClientes'=>$id]);
     }
 
     public function gerenciarCliente(Request $request){

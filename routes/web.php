@@ -22,16 +22,16 @@ Route::get("/home", [ClienteController::class,'showHome'])->name('home');
 Route::post('/cadastroCliente', [ClienteController::class, 'cadCliente'])->name('envia-banco-cliente');
 Route::get('/gerenciarCliente', [ClienteController::class, 'gerenciarCliente'])->name('gerenciar-cliente');
 Route::get('/cadastroCliente', [ClienteController::class, 'showCadastro'])->name('show-formulario-cadastro');
-Route::get('/alterar-cliente',[ClienteController::class,'mostrarGerenciarCliente'])->name('mostrar-cliente');
+Route::get('/alterar-cliente/{id}',[ClienteController::class,'mostrargerenciarClienteID'])->name('mostrar-cliente');
 Route::put('/alterar-cliente/{id}',[ClienteController::class,'alterarClienteBanco'])->name('alterar-cliente');
 Route::delete('/apaga-cliente/{id}',[ClienteController::class,'destroy'])->name('apaga-cliente');
 
 
 Route::post('/cadastroFuncionarios', [FuncionarioController::class, 'cadFunci'])->name('envia-banco-funci');
 Route::get('/cadastroFuncionarios', [FuncionarioController::class, 'showCadastroFunci'])->name('show-formulario-funci');
-Route::get('/gerenciarFuncionarios', [FuncionarioController::class, 'gerenciarFunci'])->name('gerenciar-funcionario');
+Route::get('/gerenciarFuncionarios', [FuncionarioController::class, 'gerenciarFuncionario'])->name('gerenciar-funcionario');
 
-Route::get('/alterar-funcionario',[FuncionarioController::class,'mostrarGerenciarfuncionario'])->name('mostrar-funcionario');
+Route::get('/alterar-funcionario/{id}',[FuncionarioController::class,'mostrargerenciarFuncionarioID'])->name('mostrar-funcionario');
 Route::put('/alterar-funcionario/{id}',[FuncionarioController::class,'alterarfuncionarioBanco'])->name('alterar-funcionario');
 Route::delete('/apaga-funcionario/{id}',[FuncionarioController::class,'destroy'])->name('apaga-funcionario');
 

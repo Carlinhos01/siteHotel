@@ -4,7 +4,7 @@
 <section class="container m-5">
 <h1 class="text-center">Gerenciar dados do funcionario</h1>
   <div class="container m-5">
-    <form >
+    <form method="get" action="{{route('gerenciar-funcionario')}}">
     @csrf
       <div class="row center">
         <div class="col">
@@ -20,26 +20,30 @@
     <thead>
       <tr>
         <th scope="col">Código</th>
-        <th scope="col">Número do Quarto</th>
-        <th scope="col">Tipo</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Função</th>
         <th scope="col">Editar</th>
         <th scope="col">Excluir</th>
       </tr>
     </thead>
     <tbody>
-    @foreach($registrosFunciionario as $registrosFuncionarioLoop)
+    @foreach($registrosFuncionario as $registrosFuncionarioLoop)
       <tr>
-      <th scope="row">{{$registrosClientesLoop->id}}</th>
+      <th scope="row">{{$registrosFuncionarioLoop->id}}</th>
         <td>{{$registrosFuncionarioLoop->nome}}</td>
-        <td>{{$registrosFuncionarioLoop->função}}</td>
+        <td>{{$registrosFuncionarioLoop->funcao}}</td>
         <td>
-          <a href="">
+          <a href="{{route('mostrar-funcionario',$registrosFuncionarioLoop->id)}}">
             <button type="button" class="btn btn-primary">X</button>
           </a>
         </td>
-        xx
+        
         <td>
-         xxx
+        <form method="post" action="{{route('apaga-funcionario',$registrosFuncionarioLoop->id)}}">
+          @method('delete')
+          @csrf
+          <button type="submit" class="btn btn-primary">X</button>
+         </form>
         </td>
       </tr>
       @endforeach

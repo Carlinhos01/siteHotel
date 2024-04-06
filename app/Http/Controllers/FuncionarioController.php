@@ -25,12 +25,12 @@ class FuncionarioController extends Controller
         funcionario::create($dadosValidos);
         return view ("home");
     }
-    public function mostrargerenciarFuncionarioID(Cliente $id){
+    public function mostrargerenciarFuncionarioID(Funcionario $id){
 
-        return view('xxxxxxxxxxx',['registrosFunsionario'=>$id]);
+        return view('formularioAlterarFuncionario',['registrosFuncionario'=>$id]);
     }
 
-    public function gerenciarfuncionario(Request $request){
+    public function gerenciarFuncionario(Request $request){
 
         $dadosFuncionario = Funcionario::query();
         $dadosFuncionario->when($request->nome,function($query,$valor){
@@ -43,6 +43,18 @@ class FuncionarioController extends Controller
 
     public function destroy(Funcionario $id){
         $id->delete();
+        return Redirect::route('home');
+    }
+
+    public function alterarFuncionarioBanco(Funcionario $id,Request $request){
+
+        $dadosValidos = $request-> validate([
+            'nome' => 'string|required', 
+            'funcao' => 'string|required',
+            
+        ]);
+        $id->fill($dadosValidos);
+        $id->save();
         return Redirect::route('home');
     }
 }

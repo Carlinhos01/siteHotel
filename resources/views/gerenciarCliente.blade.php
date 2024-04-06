@@ -35,9 +35,8 @@
         <td>{{$registrosClientesLoop->nome}}</td>
         <td>{{$registrosClientesLoop->email}}</td>
         <td>{{$registrosClientesLoop->fone}}</td>
-
         <td>
-          <a href="">
+          <a href="{{route('mostrar-cliente',$registrosClientesLoop->id)}}">
             <button type="button" class="btn btn-primary">X</button>
           </a>
         </td>
