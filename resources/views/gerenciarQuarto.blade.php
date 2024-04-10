@@ -22,27 +22,33 @@
         <th scope="col">Código</th>
         <th scope="col">Número do Quarto</th>
         <th scope="col">Tipo</th>
+        <th scope="col">Valor</th>
         <th scope="col">Editar</th>
         <th scope="col">Excluir</th>
       </tr>
     </thead>
     <tbody>
-     
+    @foreach($registrosQuarto as $registrosQuartoLoop)
       <tr>
-        <th scope="row">01</th>
-        <td>119897-999</td>
-        <td>Samsung</td>
+      <th scope="row">{{$registrosQuartoLoop->id}}</th>
+        <td>{{$registrosQuartoLoop->numeroQuarto}}</td>
+        <td>{{$registrosQuartoLoop->tipoQuarto}}</td>
+        <td>{{$registrosQuartoLoop->valorDiaria}}</td>
         <td>
-          <a href="">
+          <a href="{{route('mostrar-quarto',$registrosQuartoLoop->id)}}">
             <button type="button" class="btn btn-primary">X</button>
           </a>
         </td>
-        xx
+        
         <td>
-         xxx
+        <form method="post" action="{{route('apaga-quarto',$registrosQuartoLoop->id)}}">
+          @method('delete')
+          @csrf
+          <button type="submit" class="btn btn-primary">X</button>
+         </form>
         </td>
       </tr>
-   
+      @endforeach
     </tbody>
   </table>
 </section>
