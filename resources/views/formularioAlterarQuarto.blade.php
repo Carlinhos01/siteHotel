@@ -7,7 +7,7 @@
 @csrf
 <div class="col-md-12">
     <label for="InputNome" class="form-label">Número</label>
-    <input type="text" class="form-control" id="inputNome" value="{{old('numeroQuarto',$registrosQuarto->numeroQuarto)}}" name="numeroQuarto" required placeholder="Número do Quarto">
+    <input type="number" class="form-control" id="inputNumero" value="{{old('numeroQuarto',$registrosQuarto->numeroQuarto)}}" name="numeroQuarto" required placeholder="Número do Quarto">
     @error('numero')
     <div class="text-sm-start text-ligth">*Preencher o campo Nome.</div>
     @enderror
@@ -17,8 +17,9 @@
     <label for="inputEmail" class="form-label">Tipo</label>
     <select id="inputFuncao" class="form-select" value="{{old('tipoQuarto',$registrosQuarto->tipoQuarto)}}" name="tipoQuarto" required placeholder="Tipo">
       <option selected disabled></option>
-      <option>Chefe</option>
-      <option>Subalterno</option>
+      <option value="Classe A">Classe A</option>
+      <option value="Comercial">Comercial</option>
+      <option value="Suite">Suite</option>
     </select>
     @error('tipo')
     <div class="text-sm-start text-ligth">*Preencher o campo Função.</div>
@@ -26,11 +27,7 @@
 
     <div class="col-md-12">
     <label for="inputEmail" class="form-label">Valor</label>
-    <select id="inputFuncao" class="form-select" value="{{old('valorDiaria',$registrosQuarto->valorDiaria)}}" name="valorDiaria" required placeholder="Valor">
-      <option selected disabled></option>
-      <option>Chefe</option>
-      <option>Subalterno</option>
-    </select>
+    <input type="number" id="inputValor" class="form-select" value="{{old('valorDiaria',$registrosQuarto->valorDiaria)}}" name="valorDiaria" required placeholder="Valor">
     @error('valor')
     <div class="text-sm-start text-ligth">*Preencher o campo Função.</div>
     @enderror

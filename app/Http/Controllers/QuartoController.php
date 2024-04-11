@@ -36,7 +36,7 @@ class QuartoController extends Controller
 
         $dadosQuarto = Quarto::query();
         $dadosQuarto->when($request->nome,function($query,$valor){
-            $query->where('nome','like','%'.$valor.'%');
+            $query->where('numeroQuarto','like','%'.$valor.'%');
         });
         $dadosQuarto = $dadosQuarto->get();
 
@@ -56,7 +56,7 @@ class QuartoController extends Controller
     public function alterarquartoBanco(Quarto $id,Request $request){
 
         $dadosValidos = $request-> validate([
-            'nomeQuarto' => 'string|required', 
+            'numeroQuarto' => 'string|required', 
             'tipoQuarto' => 'string|required',
             'valorDiaria' => 'string|required'
         ]);
